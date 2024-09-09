@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:15.2
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./setup:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+      SCHEMA: ${DB_SCHEMA}
+      REMOTE_HOST: ${REMOTE_HOST}
+      REMOTE_PORT: ${REMOTE_PORT}
+      REMOTE_USER: ${REMOTE_USER}
+      REMOTE_PASS: ${REMOTE_PASS}
